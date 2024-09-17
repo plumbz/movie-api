@@ -5,13 +5,120 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
         <title>Movie API</title>
+        <!-- Bootstrap CSS -->
+
     </head>
 
     <body>
-        <h1>How to use My Movie API.</h1>
+        <h1>Movie Api Documentation.</h1>
         <p>
-            <ul>Movie API allows you to recieve information about movies, directors, and genres.</ul>
-            <ul>Movie API allows you to create a profile to save a list of your favorite movies.</ul>
+        Welcome to the documentation of Movie API. This API allows the user to recieve information about movies, directors' Bio, and genres.
+        The Movie API allows users to create a profile to save a list of thier favorite movies as well as to delete them. This API is built using Node.js, Express, Body- Parser and UUI.
+        <table border="3">
+            <thead>
+                <tr>
+                    <th>Request</th>
+                    <th>URL</th>
+                    <th>Description</th>
+                    <th>HTTP Method</th>
+                    <th>Query Parameters</th>
+                    <th>Request Body </th>
+                    <th>Response body</th>
+                </tr>
+            </thead>
+            <tbody>
+                   <!-- Get All Movies -->
+                <tr>
+                    <td>Get All Movies</td>
+                    <td>/movies</td>
+                    <td>Returns a list of all movies in the database.</td>
+                    <td>GET</td>
+                    <td>None</td>
+                    <td>None</td>
+                    <td>JSON array of movie objects</td>
+                </tr>
+                   <!-- Get Movie by Title -->
+                <tr>
+                    <td>Get Movie by Title</td>
+                    <td>/movies/:title</td>
+                    <td>Returns data of the specific movie being searched.</td>
+                    <td>GET</td>
+                    <td>title (URL parameter)</td>
+                    <td>None</td>
+                    <td>JSON object holding movie details (title, description, genre, director, image URL, etc.)</td>
+                </tr>
+                   <!-- Get Genre by Name -->
+                <tr>
+                    <td>Get Genre by Name</td>
+                    <td>/genres/:name</td>
+                    <td>Returns data about a genre specified by it`s name.</td>
+                    <td>GET</td>
+                    <td>name (URL parameter)</td>
+                    <td>None</td>
+                    <td>JSON object with genre details (name, description)</td>
+                </tr>
+                   <!-- Get Director by Name -->
+                <tr>
+                    <td>Get Director by Name</td>
+                    <td>/directors/:name</td>
+                    <td>Returns data about a director specified by their name.</td>
+                    <td>GET</td>
+                    <td>name (URL parameter)</td>
+                    <td>None</td>
+                    <td>JSON object holding director details (name, birth year, death year)</td>
+                </tr>
+                   <!-- Create User -->
+                <tr>
+                    <td>Create User</td>
+                    <td>/users</td>
+                    <td>Added new user.</td>
+                    <td>POST</td>
+                    <td>None</td>
+                    <td>JSON object of the new user</td>
+                    <td>Confirmation message or error message</td>
+                </tr>
+                   <!-- Update User -->
+                <tr>
+                    <td>Update User</td>
+                    <td>/users/:id</td>
+                    <td>Allows a user to update their personal information.</td>
+                    <td>PUT</td>
+                    <td>id (URL parameter)</td>
+                    <td>JSON object with updated user data (username, password, email, dateOfBirth)</td>
+                    <td>Confirmation message</td>
+                </tr>
+                   <!-- Add Movie to Favorites -->
+                <tr>
+                    <td>Add Movie to Favorites</td>
+                    <td>/users/:id/movieTitle</td>
+                    <td>Add a movie to a user's list of favorites.</td>
+                    <td>POST</td>
+                    <td>id and movie title (URL parameter)</td>
+                    <td>None</td>
+                    <td>Updated list of favorite movies or confirmation message</td>
+                </tr>
+                   <!-- Remove Movie from Favorites -->
+                <tr>
+                    <td>Remove Movie from Favorites</td>
+                     <td>/users/:id/movieTitle</td>
+                     <td>Remove a movie from a user's list of favorites.</td>
+                     <td>DELETE</td>
+                    <td>id and movie title (URL parameter)</td>
+                    <td>None</td>
+                    <td>Updated list of favorite movies or confirmation message</td>
+                </tr>
+                   <!-- Deregister User -->
+                <tr>
+                    <td>Deregister User</td>
+                    <td>/users/:id</td>
+                    <td>Allows an existing user to deregister.</td>
+                    <td>DELETE</td>
+                    <td>id (URL parameter)</td>
+                    <td>None</td>
+                    <td>Confirmation message or error message</td>
+                </tr>
+            </tbody>
+        </table>
         </p>
     </body>
 
