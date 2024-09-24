@@ -27,6 +27,7 @@
                 </tr>
             </thead>
             <tbody>
+                
                    <!-- Get All Movies -->
                 <tr>
                     <td>Get All Movies</td>
@@ -36,6 +37,26 @@
                     <td>None</td>
                     <td>None</td>
                     <td>JSON array of movie objects</td>
+                </tr>
+                  <!-- Create Movie -->
+                <tr>
+                    <td>Create (new) Movie </td>
+                    <td>/movies</td>
+                    <td>Add a new movie to the data base.</td>
+                    <td>POST</td>
+                    <td>None</td>
+                    <td>Json objects of the new movie</td>
+                    <td>Confirmation message or error message</td>
+                </tr>
+                  <!-- Delete Movie -->
+                <tr>
+                    <td>Delete Movie </td>
+                    <td>/movies/:title</td>
+                    <td>Delete a movie from the data base.</td>
+                    <td>DELETE</td>
+                    <td>title (URL parameter)</td>
+                    <td>None</td>
+                    <td>Confirmation message or error message</td>
                 </tr>
                    <!-- Get Movie by Title -->
                 <tr>
@@ -87,6 +108,16 @@
                     <td>JSON object with updated user data</td>
                     <td>Confirmation message</td>
                 </tr>
+                 <!-- Deregister User -->
+                <tr>
+                    <td>Deregister User</td>
+                    <td>/users/:id</td>
+                    <td>Allows an existing user to deregister.</td>
+                    <td>DELETE</td>
+                    <td>id (URL parameter)</td>
+                    <td>None</td>
+                    <td>Confirmation message or error message</td>
+                </tr>
                    <!-- Add Movie to Favorites -->
                 <tr>
                     <td>Add Movie to Favorites</td>
@@ -100,23 +131,13 @@
                    <!-- Remove Movie from Favorites -->
                 <tr>
                     <td>Remove Movie from Favorites</td>
-                     <td>/users/:id/movieTitle</td>
-                     <td>Remove a movie from a user's list of favorites.</td>
-                     <td>DELETE</td>
+                    <td>/users/:id/movieTitle</td>
+                    <td>Remove a movie from a user's list of favorites.</td>
+                    <td>DELETE</td>
                     <td>id and movie title (URL parameter)</td>
                     <td>None</td>
                     <td>Updated list of favorite movies or confirmation message</td>
-                </tr>
-                   <!-- Deregister User -->
-                <tr>
-                    <td>Deregister User</td>
-                    <td>/users/:id</td>
-                    <td>Allows an existing user to deregister.</td>
-                    <td>DELETE</td>
-                    <td>id (URL parameter)</td>
-                    <td>None</td>
-                    <td>Confirmation message or error message</td>
-                </tr>
+                </tr>                   
             </tbody>
         </table>
         </p>

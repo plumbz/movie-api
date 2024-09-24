@@ -22,7 +22,7 @@ let movies = [
       Discirption: 'When Bella Swan moves to a small town in the Pacific Northwest, she falls in love with Edward Cullen, a mysterious classmate who reveals himself to be a 108-year-old vampire.',
       Director: {
             Name: 'Catherine Hardwicke',
-            Birthdate: 'October 21, 1955',
+            Bio: ('is an American film director, production designer, and screenwriter', 'October 21, 1955')
         },
         Genre:{
             Name:'Romance',
@@ -35,7 +35,7 @@ let movies = [
         Description: 'Mia, a shy teen, discovers that she is the princess of a small European state. To be able to claim her right to the throne, she must groom herself and prove that she is indeed a princess.',
         Director: {
             Name:'Garry Marshall',
-            Birthdate: 'November 13, 1934'
+            Bio: ('was an American screenwriter, film director, producer and actor.', 'November 13, 1934 - July 19, 2016')
             },
         Genre :{
             Name:'Comedy',
@@ -48,7 +48,7 @@ let movies = [
         Description: 'After Thanos, an intergalactic warlord, disintegrates half of the universe, the Avengers must reunite and assemble again to reinvigorate their trounced allies and restore balance.',
         Director: {
             Name: 'Anthony Russo and Joe Russo',
-            Birthdate: '3. Februar 1970 and 18. Juli 1971'
+            Bio: ('are American directors, producers, and screenwriters','3. Februar 1970 and 18. Juli 1971')
         },
         Genre:{
             Name:'Science fiction',
@@ -61,7 +61,7 @@ let movies = [
         Description: 'William Wallace, a Scottish rebel, along with his clan, sets out to battle King Edward I of England, who killed his bride a day after their marriage.',
         Director: {
             Name: 'Mel Gibson',
-            Birthdate:' January 3, 1956'
+            Bio:('is an American actor and filmmaker', ' January 3, 1956')
         },
        Genre:{
             Name:'Action',
@@ -74,7 +74,7 @@ let movies = [
         Discription: 'Commodus takes over power and demotes Maximus, one of the preferred generals of his father, Emperor Marcus Aurelius. As a result, Maximus is relegated to fighting till death as a gladiator.',
         Director: {
             Name: 'Ridley Scott',
-            Birthdate: 'November 30, 1937'
+            Bio:('is an English filmmaker', 'November 30, 1937')
         },
         Genre :{
             Name: 'Action',
@@ -87,7 +87,7 @@ let movies = [
         Description: 'Noah, a poor man, falls in love with Allie who comes from wealth. They are forced to keep passion for each other aside due to societal pressure and a difference in the social stature of their families.',
         Director: {
             Name: 'Nick Cassavetes',
-            Birthdate: 'May 21, 1959'
+            Bio: (' is an American actor, director, and writer', 'May 21, 1959')
         },
         Genre:{
             Name: 'Romance',
@@ -100,7 +100,7 @@ let movies = [
         Description: 'Rose, who is being forced to marry a wealthy man, falls in love with Jack, a talented artist, aboard the unsinkable Titanic. Unfortunately, the ship hits an iceberg, endangering their lives.',
         Director: {
             Name: 'James Cameron',
-            Birthdate: 'August 16, 1954'
+            Bio: ('is a Canadian filmmaker', 'August 16, 1954')
         },
         Genre: {
             Name:'Romance',
@@ -113,7 +113,7 @@ let movies = [
         Description:'Jake, a paraplegic marine, replaces his brother on the Na vi-inhabited Pandora for a corporate mission. He is accepted by the natives as one of their own, but he must decide where his loyalties lie.',
          Director: {
             Name: 'James Cameron',
-            Birthdate: 'August 16, 1954'
+            Bio: ('is a Canadian filmmaker','August 16, 1954')
         },
         Genre:{
             Name:'Science fiction',
@@ -126,7 +126,7 @@ let movies = [
         Description:'Identical twins Hallie and Annie are separated after their parents divorce. Years later, they discover each other at a summer camp and decide to switch places in an effort to reunite their parents',
         Director:{
             Name: 'Nancy Meyers',
-            Birthdate: 'December 8, 1948'
+            Bio: (' is an American filmmaker', 'December 8, 1948')
         },      
         Genre : {
             Name:'Comedy',
@@ -139,7 +139,7 @@ let movies = [
         Description: 'Adaline, who has been 29 for eight decades, meets and madly falls in love with Ellis. She is forced to make a life-altering decision after a meeting with his parents threatens to expose her secret.',
         Director: {
             Name: 'Lee Toland Krieger',
-            Birthdate: 'January 24, 1983'
+            Bio: ('is an American film director and screenwriter', 'January 24, 1983')
         },
         Genre:{
             Name: 'Romance',
@@ -229,6 +229,19 @@ app.get('/movies', (req, res) =>{
     res.status(200).json(movies);
 })
 
+//Post
+app.post('/movies', (req, res) =>{
+    const newMovie = req.body;
+
+    if (newMovie.title) {
+        newMovie.id = uuid.v4();
+        movies.push(newMovie);
+        res.status(201).json(newMovie);
+    } else {
+        res.status(400).send( 'require title')
+    }
+});
+
 //READ
 app.get('/movies/:title', (req, res) =>{
    const {title} = req.params;
@@ -240,6 +253,19 @@ app.get('/movies/:title', (req, res) =>{
         res.status(404).send('no such movie')
     }
 })
+
+//DELETE
+app.delete('/movies/:title', (req, res) =>{
+    const {title} = req.params;
+    const movie = movies.find( movie => movie.Title === title );
+ 
+    if (movie) {
+        movies =  movies.filter(  movie => movie.Title != title);
+        res.status(200).send(` movie ${title} has been deleted`);
+    }  else {
+         res.status(404).send('no such movie')
+    }
+ })
 
 //READ
 app.get('/movies/genre/:genreName', (req, res) =>{
