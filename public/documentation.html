@@ -101,7 +101,7 @@
                    <!-- Update User -->
                 <tr>
                     <td>Update User</td>
-                    <td>/users/:id</td>
+                    <td>/users/:username</td>
                     <td>Allows a user to update their personal information.</td>
                     <td>PUT</td>
                     <td>id (URL parameter)</td>
@@ -111,12 +111,22 @@
                  <!-- Deregister User -->
                 <tr>
                     <td>Deregister User</td>
-                    <td>/users/:id</td>
+                    <td>/users/:username</td>
                     <td>Allows an existing user to deregister.</td>
                     <td>DELETE</td>
                     <td>id (URL parameter)</td>
                     <td>None</td>
                     <td>Confirmation message or error message</td>
+                </tr>
+                   <!-- Delete User -->
+                   <tr>
+                    <td>Delete User</td>
+                    <td>/users/:username</td>
+                    <td>allow an excisting user to be deleted.</td>
+                    <td>DELETE</td>
+                    <td>username (URL parameter)</td>
+                    <td>None</td>
+                    <td>Confirmation message</td>
                 </tr>
                    <!-- Add Movie to Favorites -->
                 <tr>
