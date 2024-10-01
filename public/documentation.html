@@ -28,7 +28,7 @@
             </thead>
             <tbody>
                 
-                   <!-- Get All Movies -->
+                <!-- Get All Movies -->
                 <tr>
                     <td>Get All Movies</td>
                     <td>/movies</td>
@@ -38,9 +38,9 @@
                     <td>None</td>
                     <td>JSON array of movie objects</td>
                 </tr>
-                  <!-- Create Movie -->
+                <!-- Create Movie -->
                 <tr>
-                    <td>Create (new) Movie </td>
+                    <td>Create (new) Movie (WIP) </td>
                     <td>/movies</td>
                     <td>Add a new movie to the data base.</td>
                     <td>POST</td>
@@ -48,103 +48,171 @@
                     <td>Json objects of the new movie</td>
                     <td>Confirmation message or error message</td>
                 </tr>
-                  <!-- Delete Movie -->
+                <!-- Delete Movie -->
                 <tr>
-                    <td>Delete Movie </td>
+                    <td>Delete Movie (WIP)</td>
                     <td>/movies/:title</td>
                     <td>Delete a movie from the data base.</td>
                     <td>DELETE</td>
-                    <td>title (URL parameter)</td>
+                    <td>movietitle (URL parameter)</td>
                     <td>None</td>
                     <td>Confirmation message or error message</td>
                 </tr>
-                   <!-- Get Movie by Title -->
+                <!-- Get Movie by Title -->
                 <tr>
                     <td>Get Movie by Title</td>
                     <td>/movies/:title</td>
                     <td>Returns data of the specific movie being searched.</td>
                     <td>GET</td>
-                    <td>title (URL parameter)</td>
+                    <td>movietitle (URL parameter)</td>
                     <td>None</td>
-                    <td>JSON object holding movie details (title, description, genre, director, image URL, etc.)</td>
+                    <td>JSON object holding movie details <br>
+                        {
+                            "genre": {<br>
+                                "name": "Fantasy",<br>
+                                "description": "A genre involving magical or supernatural elements in an imaginative world."<br>
+                            },<br>
+                            "director": {<br>
+                                "name": "James Cameron",<br>
+                                "bio": "Filmmaker known for visually spectacular films and pushing the limits of CGI.",<br>
+                                "birthdate": "1954-08-16T00:00:00.000Z",<br>
+                                "deathdate": null <br>
+                            },<br>
+                            "_id": "66f1d492dcc33574a3c73c01",<br>
+                            "title": "Avatar",<br>
+                            "description": "A marine on an alien planet becomes torn between following orders and protecting the world he feels is his home.",<br>
+                            "imagePath": "/images/avatar.jpg",<br>
+                            "featured": false
+                        } </td>
                 </tr>
-                   <!-- Get Genre by Name -->
+                <!-- Get Genre by Name -->
                 <tr>
                     <td>Get Genre by Name</td>
                     <td>/genres/:name</td>
                     <td>Returns data about a genre specified by it`s name.</td>
                     <td>GET</td>
-                    <td>name (URL parameter)</td>
+                    <td>genre name (URL parameter)</td>
                     <td>None</td>
-                    <td>JSON object with genre details (name, description)</td>
+                    <td>JSON object with genre details <br>
+                        {<br>
+                            "genre": "Action",<br>
+                            "description": "A genre focusing on physical feats, battles, and high-energy sequences."<br>
+                        }<br>
+                    </td>
                 </tr>
-                   <!-- Get Director by Name -->
+                <!-- Get Director by Name -->
                 <tr>
                     <td>Get Director by Name</td>
-                    <td>/directors/:name</td>
+                    <td>directors/:directorName</td>
                     <td>Returns data about a director specified by their name.</td>
                     <td>GET</td>
-                    <td>name (URL parameter)</td>
+                    <td>director name (URL parameter)</td>
                     <td>None</td>
-                    <td>JSON object holding director details (name, birth year, death year)</td>
+                    <td>JSON object holding director details <br>
+                        {<br>
+                            "director": "Wachowskis",<br>
+                            "bio": "Siblings known for their thought-provoking, high-concept science fiction films.",<br>
+                            "birthdate": "1965-12-21T00:00:00.000Z",<br>
+                            "deathdate": null<br>
+                        }
+                    </td>
                 </tr>
-                   <!-- Create User -->
+                <!-- Create User -->
                 <tr>
                     <td>Create User</td>
                     <td>/users</td>
                     <td>Added new user.</td>
                     <td>POST</td>
                     <td>None</td>
-                    <td>JSON object of the new user</td>
-                    <td>Confirmation message or error message</td>
+                    <td>JSON object of the new user <br>
+                        {
+                            "email": "john@doe.com",<br>
+                            "firstName": "John",<br>
+                            "lastName": "Doe",<br>
+                            "password": "securePassword123",<br>
+                            "birthday": "1990-01-01",<br>
+                            "username": "johndoe"
+                        }
+                    </td>
+                    <td>Json object of the new user or Error message <br>
+                        {<br>
+                            "birthday": "1990-01-01",<br>
+                            "_id": "66f9b36d4929b3c147df3d66",<br>
+                            "email": "johndoe@updated.com",<br>
+                            "firstName": "John",<br>
+                            "lastName": "Doe",<br>
+                            "password": "securePassword123",<br>
+                            "favorites": [],<br>
+                            "username": "johndoeThe2nd",<br>
+                            "__v": 0
+                        }
+                    </td>
                 </tr>
-                   <!-- Update User -->
+                <!-- Update User -->
                 <tr>
                     <td>Update User</td>
                     <td>/users/:username</td>
                     <td>Allows a user to update their personal information.</td>
                     <td>PUT</td>
-                    <td>id (URL parameter)</td>
-                    <td>JSON object with updated user data</td>
-                    <td>Confirmation message</td>
+                    <td>username (URL parameter)</td>
+                    <td>JSON object with updated user data<br>
+                        {
+                            "email": "johndoe@updated.com",<br>
+                            "firstName": "John",<br>
+                            "lastName": "Doe",<br>
+                            "password": "securePassword123",<br>
+                            "birthday": "1990-01-01",<br>
+                            "username": "johndoeThe2nd"
+                        }
+                    </td>
+                    <td>json object of the updated user or error message <br>
+                        {<br>
+                            "birthday": "1990-01-01",<br>
+                            "_id": "66f9b36d4929b3c147df3d66",<br>
+                            "email": "johndoe@updated.com",<br>
+                            "firstName": "John",<br>
+                            "lastName": "Doe",<br>
+                            "password": "securePassword123",<br>
+                            "favorites": [],<br>
+                            "username": "johndoeThe2nd",<br>
+                            "__v": 0
+                        }
+                    </td>
                 </tr>
-                 <!-- Deregister User -->
+                <!-- Delete User -->
                 <tr>
-                    <td>Deregister User</td>
+                    <td>Delete / Deregister User</td>
                     <td>/users/:username</td>
-                    <td>Allows an existing user to deregister.</td>
-                    <td>DELETE</td>
-                    <td>id (URL parameter)</td>
-                    <td>None</td>
-                    <td>Confirmation message or error message</td>
-                </tr>
-                   <!-- Delete User -->
-                   <tr>
-                    <td>Delete User</td>
-                    <td>/users/:username</td>
-                    <td>allow an excisting user to be deleted.</td>
+                    <td>allow an existing user to be deleted.</td>
                     <td>DELETE</td>
                     <td>username (URL parameter)</td>
                     <td>None</td>
-                    <td>Confirmation message</td>
+                    <td>Confirmation message or error message</td>
                 </tr>
-                   <!-- Add Movie to Favorites -->
+                <!-- Add Movie to Favorites -->
                 <tr>
                     <td>Add Movie to Favorites</td>
-                    <td>/users/:id/movieTitle</td>
+                    <td>/users/:username/favorites/:movieTitle</td>
                     <td>Add a movie to a user's list of favorites.</td>
                     <td>POST</td>
-                    <td>id and movie title (URL parameter)</td>
+                    <td>username and movie title (URL parameter)</td>
                     <td>None</td>
-                    <td>Updated list of favorite movies or confirmation message</td>
+                    <td>Confirmation message and Json object of the updated fav list or Error message <br>
+                        {<br>
+                            "favorites": [<br>
+                                "66f1d492dcc33574a3c73bfd",<br>
+                                "66f1d492dcc33574a3c73c02"<br>
+                            ]<br>
+                        } 
+                </td>
                 </tr>
                    <!-- Remove Movie from Favorites -->
                 <tr>
                     <td>Remove Movie from Favorites</td>
-                    <td>/users/:id/movieTitle</td>
+                    <td>/users/:username/favorites/:movieTitle</td>
                     <td>Remove a movie from a user's list of favorites.</td>
                     <td>DELETE</td>
-                    <td>id and movie title (URL parameter)</td>
+                    <td>username and movie title (URL parameter)</td>
                     <td>None</td>
                     <td>Updated list of favorite movies or confirmation message</td>
                 </tr>                   
