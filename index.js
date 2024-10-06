@@ -7,7 +7,10 @@ const express = require('express'),
     bodyParser= require('body-parser'),
     uuid = require('uuid');
 
-mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/myFlixDB', { 
+  //useNewUrlParser: true, // deprecated
+  //useUnifiedTopology: true // deprecated
+});
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
