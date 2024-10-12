@@ -24,10 +24,14 @@ app.use(cors({
   }
 }));
 
-mongoose.connect('mongodb://localhost:27017/myFlixDB', { 
+// mongoose.connect('mongodb://localhost:27017/myFlixDB', { 
   //useNewUrlParser: true, // deprecated
   //useUnifiedTopology: true // deprecated
+// });
+mongoose.connect(process.env.CONNECTION_URI,{
+
 });
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
