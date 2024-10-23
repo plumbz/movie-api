@@ -7,7 +7,7 @@ const express = require('express'),
 bodyParser = require('body-parser'),
   uuid = require('uuid');
 
-let allowedOrigins = ['http://localhost:8080', 'http://testsite.com'];
+let allowedOrigins = ['http://localhost:8080', 'http://testsite.com', 'http://localhost:1234'];
 let auth = require('./auth')(app);
 
 const { check, validationResult } = require('express-validator');
