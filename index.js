@@ -8,7 +8,7 @@ bodyParser = require('body-parser'),
   uuid = require('uuid');
 
 let allowedOrigins = ['http://localhost:8080', 'http://testsite.com', 'http://localhost:1234'];
-let auth = require('./auth')(app);
+
 
 const { check, validationResult } = require('express-validator');
 
@@ -37,7 +37,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const passport = require('passport');
-require('./passport');
+let auth = require('./auth')(app);
 
 
 //READ
