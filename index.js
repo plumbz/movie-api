@@ -244,7 +244,9 @@ app.delete('/users/:username/favorites/:movieTitle', passport.authenticate('jwt'
     }
 
     // Remove the movie ID from favorites
-    user.favorites = user.favorites.filter(id => id !== movieId);
+    //user.favorites = user.favorites.filter(id => id !== movieId);
+    user.favorites.pull(movie._id);  // This removes the movie from the array by its ObjectId
+
 
     // Save the updated user document
     await user.save();
