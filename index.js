@@ -7,7 +7,7 @@ const express = require('express'),
 bodyParser = require('body-parser'),
   uuid = require('uuid');
 
-let allowedOrigins = ['http://localhost:8080', 'http://testsite.com', 'http://localhost:1234'];
+let allowedOrigins = ['http://localhost:8080', 'http://testsite.com', 'http://localhost:1234', 'https://my-testflix.netlify.app'];
 
 
 const { check, validationResult } = require('express-validator');
