@@ -12,8 +12,10 @@
     <body>
         <h1>Movie Api Documentation.</h1>
         <p>
-        Welcome to the documentation of Movie API. This API allows the user to recieve information about movies, directors' Bio, and genres.
-        The Movie API allows users to create a profile to save a list of thier favorite movies as well as to delete them. This API is built using Node.js, Express, Body- Parser and UUI.
+            Welcome to the documentation of Movie API. This API allows the user to recieve information about movies,
+            directors' Bio, and genres.
+            The Movie API allows users to create a profile to save a list of thier favorite movies as well as to delete
+            them. This API is built using Node.js, Express, Body- Parser and UUI.
         <table border="3">
             <thead>
                 <tr>
@@ -27,7 +29,7 @@
                 </tr>
             </thead>
             <tbody>
-                
+
                 <!-- Get All Movies -->
                 <tr>
                     <td>Get All Movies</td>
@@ -68,21 +70,22 @@
                     <td>None</td>
                     <td>JSON object holding movie details <br>
                         {
-                            "genre": {<br>
-                                "name": "Fantasy",<br>
-                                "description": "A genre involving magical or supernatural elements in an imaginative world."<br>
-                            },<br>
-                            "director": {<br>
-                                "name": "James Cameron",<br>
-                                "bio": "Filmmaker known for visually spectacular films and pushing the limits of CGI.",<br>
-                                "birthdate": "1954-08-16T00:00:00.000Z",<br>
-                                "deathdate": null <br>
-                            },<br>
-                            "_id": "66f1d492dcc33574a3c73c01",<br>
-                            "title": "Avatar",<br>
-                            "description": "A marine on an alien planet becomes torn between following orders and protecting the world he feels is his home.",<br>
-                            "imagePath": "/images/avatar.jpg",<br>
-                            "featured": false
+                        "genre": {<br>
+                        "name": "Fantasy",<br>
+                        "description": "A genre involving magical or supernatural elements in an imaginative world."<br>
+                        },<br>
+                        "director": {<br>
+                        "name": "James Cameron",<br>
+                        "bio": "Filmmaker known for visually spectacular films and pushing the limits of CGI.",<br>
+                        "birthdate": "1954-08-16T00:00:00.000Z",<br>
+                        "deathdate": null <br>
+                        },<br>
+                        "_id": "66f1d492dcc33574a3c73c01",<br>
+                        "title": "Avatar",<br>
+                        "description": "A marine on an alien planet becomes torn between following orders and protecting
+                        the world he feels is his home.",<br>
+                        "imagePath": "/images/avatar.jpg",<br>
+                        "featured": false
                         } </td>
                 </tr>
                 <!-- Get Genre by Name -->
@@ -95,8 +98,8 @@
                     <td>None</td>
                     <td>JSON object with genre details <br>
                         {<br>
-                            "genre": "Action",<br>
-                            "description": "A genre focusing on physical feats, battles, and high-energy sequences."<br>
+                        "genre": "Action",<br>
+                        "description": "A genre focusing on physical feats, battles, and high-energy sequences."<br>
                         }<br>
                     </td>
                 </tr>
@@ -110,10 +113,10 @@
                     <td>None</td>
                     <td>JSON object holding director details <br>
                         {<br>
-                            "director": "Wachowskis",<br>
-                            "bio": "Siblings known for their thought-provoking, high-concept science fiction films.",<br>
-                            "birthdate": "1965-12-21T00:00:00.000Z",<br>
-                            "deathdate": null<br>
+                        "director": "Wachowskis",<br>
+                        "bio": "Siblings known for their thought-provoking, high-concept science fiction films.",<br>
+                        "birthdate": "1965-12-21T00:00:00.000Z",<br>
+                        "deathdate": null<br>
                         }
                     </td>
                 </tr>
@@ -126,25 +129,25 @@
                     <td>None</td>
                     <td>JSON object of the new user <br>
                         {
-                            "email": "john@doe.com",<br>
-                            "firstName": "John",<br>
-                            "lastName": "Doe",<br>
-                            "password": "securePassword123",<br>
-                            "birthday": "1990-01-01",<br>
-                            "username": "johndoe"
+                        "email": "john@doe.com",<br>
+                        "firstName": "John",<br>
+                        "lastName": "Doe",<br>
+                        "password": "securePassword123",<br>
+                        "birthday": "1990-01-01",<br>
+                        "username": "johndoe"
                         }
                     </td>
                     <td>Json object of the new user or Error message <br>
                         {<br>
-                            "birthday": "1990-01-01",<br>
-                            "_id": "66f9b36d4929b3c147df3d66",<br>
-                            "email": "johndoe@updated.com",<br>
-                            "firstName": "John",<br>
-                            "lastName": "Doe",<br>
-                            "password": "securePassword123",<br>
-                            "favorites": [],<br>
-                            "username": "johndoeThe2nd",<br>
-                            "__v": 0
+                        "birthday": "1990-01-01",<br>
+                        "_id": "66f9b36d4929b3c147df3d66",<br>
+                        "email": "johndoe@updated.com",<br>
+                        "firstName": "John",<br>
+                        "lastName": "Doe",<br>
+                        "password": "securePassword123",<br>
+                        "favorites": [],<br>
+                        "username": "johndoeThe2nd",<br>
+                        "__v": 0
                         }
                     </td>
                 </tr>
@@ -157,25 +160,48 @@
                     <td>username (URL parameter)</td>
                     <td>JSON object with updated user data<br>
                         {
-                            "email": "johndoe@updated.com",<br>
-                            "firstName": "John",<br>
-                            "lastName": "Doe",<br>
-                            "password": "securePassword123",<br>
-                            "birthday": "1990-01-01",<br>
-                            "username": "johndoeThe2nd"
+                        "email": "johndoe@updated.com",<br>
+                        "firstName": "John",<br>
+                        "lastName": "Doe",<br>
+                        "password": "securePassword123",<br>
+                        "birthday": "1990-01-01",<br>
+                        "username": "johndoeThe2nd"
                         }
                     </td>
                     <td>json object of the updated user or error message <br>
                         {<br>
-                            "birthday": "1990-01-01",<br>
-                            "_id": "66f9b36d4929b3c147df3d66",<br>
-                            "email": "johndoe@updated.com",<br>
-                            "firstName": "John",<br>
-                            "lastName": "Doe",<br>
-                            "password": "securePassword123",<br>
-                            "favorites": [],<br>
-                            "username": "johndoeThe2nd",<br>
-                            "__v": 0
+                        "birthday": "1990-01-01",<br>
+                        "_id": "66f9b36d4929b3c147df3d66",<br>
+                        "email": "johndoe@updated.com",<br>
+                        "firstName": "John",<br>
+                        "lastName": "Doe",<br>
+                        "password": "securePassword123",<br>
+                        "favorites": [],<br>
+                        "username": "johndoeThe2nd",<br>
+                        "__v": 0
+                        }
+                    </td>
+                </tr>
+                <!-- Get User -->
+                <tr>
+                    <td>Get User</td>
+                    <td>/users/:username</td>
+                    <td>Allows a user to get user by name.</td>
+                    <td>GET</td>
+                    <td>username (URL parameter)</td>
+                    <td>None<br>
+                    </td>
+                    <td>json object of the updated user or error message <br>
+                        {<br>
+                        "birthday": "1990-01-01",<br>
+                        "_id": "66f9b36d4929b3c147df3d66",<br>
+                        "email": "johndoe@updated.com",<br>
+                        "firstName": "John",<br>
+                        "lastName": "Doe",<br>
+                        "password": "securePassword123",<br>
+                        "favorites": [],<br>
+                        "username": "johndoeThe2nd",<br>
+                        "__v": 0
                         }
                     </td>
                 </tr>
@@ -199,14 +225,14 @@
                     <td>None</td>
                     <td>Confirmation message and Json object of the updated fav list or Error message <br>
                         {<br>
-                            "favorites": [<br>
-                                "66f1d492dcc33574a3c73bfd",<br>
-                                "66f1d492dcc33574a3c73c02"<br>
-                            ]<br>
-                        } 
-                </td>
+                        "favorites": [<br>
+                        "66f1d492dcc33574a3c73bfd",<br>
+                        "66f1d492dcc33574a3c73c02"<br>
+                        ]<br>
+                        }
+                    </td>
                 </tr>
-                   <!-- Remove Movie from Favorites -->
+                <!-- Remove Movie from Favorites -->
                 <tr>
                     <td>Remove Movie from Favorites</td>
                     <td>/users/:username/favorites/:movieTitle</td>
@@ -215,7 +241,7 @@
                     <td>username and movie title (URL parameter)</td>
                     <td>None</td>
                     <td>Updated list of favorite movies or confirmation message</td>
-                </tr>                   
+                </tr>
             </tbody>
         </table>
         </p>
