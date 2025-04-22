@@ -121,6 +121,37 @@ app.get('/users', passport.authenticate('jwt', { session: false }), async (req, 
   }
 });
 
+/**
+ * @route GET /users/:username
+ * @middleware passport.authenticate('jwt')
+ * @description Retrieves a user by their username.
+ * 
+ * @param req - The Express request object, containing the `username` parameter.
+ * @param res - The Express response object used to send back the desired HTTP response.
+ * 
+ * @returns {200} Returns the user object if found.
+ * @returns {404} Returns an error message if the user is not found.
+ * @returns {500} Returns a server error message if something goes wrong during the process.
+ */
+app.get(
+  '/users/:username',
+  passport.authenticate('jwt', { session: false }),
+  async (req, res) => {
+    const { username } = req.params;
+
+    try {
+      // Find the user by username
+      const user = await Users.findOne({ username: username });
+      if (!user) {
+        return res.status(404).json({ message: 'User not found!' });
+      }
+      res.status(200).json(user);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send('Error: ' + err);
+    }
+  }
+);
 
 
 /**
